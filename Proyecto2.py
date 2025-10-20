@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Proyecto 2 — Motor de Inferencia basado en Resolución (Bonito y con Reporte)
-Autor: Juan Diego Rojas Vargas
+Pontificia Universidad Javeriana – Proyecto 2
+Autores: Juan Diego Rojas Vargas, Juan Martin Trejos, Victoria Elizabeth Roa González y Hania Valentina Carreño Baquero
 
 Incluye:
  - Entrada en Lógica de Primer Orden (FOL)
