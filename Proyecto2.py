@@ -5,16 +5,52 @@ Autor: Juan Diego Rojas Vargas
 
 Incluye:
  - Entrada en Lógica de Primer Orden (FOL)
+ - Conversión FOL → FNC (Forma Normal Conjuntiva) con skolemización básica
  - Resolución con Unificación (MGU)
  - Salida formateada con colores y estructura
  - Reporte completo en archivo 'reporte_resolucion.txt'
+
+───────────────────────────────────────────────────────────────
+1) Cómo escribir FOL en tu programa (chuleta rápida)
+
+El parser acepta fórmulas en texto plano, con las siguientes
+convenciones. Internamente el sistema las convierte a FNC.
+
+┌──────────────────────────┬───────────────────────┬────────────────────────────┬──────────────────────────────────────────────┐
+│ Conectivo / cuantificador │ Cómo escribirlo       │ También acepta             │ Ejemplos válidos                             │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ Para todo                │ forall                │ ∀                         │ forall x: P(x) -> Q(x)                       │
+│                          │                       │                           │ forall x,y: (A(x) ^ B(y)) -> C(x,y)          │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ Existe (en el consecuente)│ exists                │ ∃ (si se añade reemplazo) │ forall x: P(x) -> (exists z: R(z,x))         │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ Y / Conjunción           │ ^                     │ &  o  ∧                   │ forall x: (A(x) ^ B(x)) -> C(x)              │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ O / Disyunción           │ v                     │ ∨                         │ P(a) v Q(b)                                  │
+│                          │                       │                           │ forall x: A(x) -> (B(x) v C(x))              │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ Implicación              │ ->                    │ →                         │ forall x: P(x) -> Q(x)                       │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ Negación                 │ ¬                     │ (recomendado usar ¬ tal    │ forall x: (A(x) ^ B(x)) -> ¬C(x)             │
+│                          │                       │ cual)                     │                                              │
+└──────────────────────────┴───────────────────────┴────────────────────────────┴──────────────────────────────────────────────┘
+
+Notas:
+- Las reglas soportan "forall" en el antecedente y "exists" o "forall"
+  dentro del consecuente.
+- Los existenciales sólo deben aparecer en el consecuente.
+- Puedes escribir '∧', '∨', '→' y '∀'; el programa los normaliza.
+- Usa 'fin' para indicar el final de la base de conocimiento.
+───────────────────────────────────────────────────────────────
 """
 
 import re
 from itertools import combinations
 from datetime import datetime
 
+# ---------------------------
 # Colores ANSI
+# ---------------------------
 class c:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -26,63 +62,25 @@ class c:
     ENDC = '\033[0m'
 
 # ---------------------------
-# Limpieza y utilidades
-# ---------------------------
-def limpiar(s):
-    return (s.replace(" ", "")
-             .replace("∀", "forall")
-             .replace("^", "∧")
-             .replace("v", "∨")
-             .replace("→", "->")
-             .strip())
-
-# ---------------------------
 # Conversión FOL → FNC
 # ---------------------------
 def fol_a_fnc_clausulas(fols, pregunta):
-    """
-    Conversor FOL -> FNC para los patrones del curso, con skolemización básica:
-      - Hechos:                 P(a), P(a) ∨ Q(b)
-      - ∀…: A(x) -> B(x)
-      - ∀…: A(x) -> (B(x) ∨ C(x))
-      - ∀…: (A ^ B ^ ...) -> ¬D
-      - ∀…: (A ^ B ^ ...) -> ∃v  T(...)
-      - ∀…: (A ^ B ^ ...) -> ∀v  ¬T(...)
-
-    Notas:
-      - Usa '∧' o '&' para AND y '∨' o 'v' para OR.
-      - Para '∃v' en el consecuente, crea función de Skolem f_v(universales_en_alcance).
-      - Si no hay universales, usa constante Skolem c_v.
-    """
     def norm(s):
         return (s.replace(" ", "")
                  .replace("∀", "forall")
+                 .replace("∃", "exists")
                  .replace("∧", "^").replace("&", "^")
                  .replace("∨", "v").replace("→", "->"))
 
-    def split_conj(s):
-        return [p for p in s.split("^") if p]
-
-    def split_disj(s):
-        return [p for p in s.split("v") if p]
-
-    def negate(atom):
-        return atom if atom.startswith("¬") else f"¬{atom}"
+    def split_conj(s): return [p for p in s.split("^") if p]
+    def split_disj(s): return [p for p in s.split("v") if p]
+    def negate(atom): return atom if atom.startswith("¬") else f"¬{atom}"
 
     def skolemize_existential(pred_str, evars, uvars):
-        """
-        Reemplaza cada existencial 'v' en pred_str por f_v(uvars) o c_v si uvars=[]
-        pred_str: e.g. 'Ama(z,x)'
-        evars:    lista de variables existenciales, e.g. ['z']
-        uvars:    lista de variables universales en alcance, e.g. ['x','y']
-        """
         out = pred_str
         args = ",".join(uvars)
         for v in evars:
-            if uvars:
-                sk = f"f_{v}({args})"
-            else:
-                sk = f"c_{v}"
+            sk = f"f_{v}({args})" if uvars else f"c_{v}"
             out = re.sub(rf"\b{v}\b", sk, out)
         return out
 
@@ -91,38 +89,31 @@ def fol_a_fnc_clausulas(fols, pregunta):
     for f in fols:
         s = norm(f)
 
-        # 0) Hecho disyuntivo directo:  P(...) v Q(...)  (lo tomamos como cláusula)
+        # Hecho disyuntivo
         if ("forall" not in s) and ("->" not in s) and ("v" in s):
             parts = split_disj(s)
             clauses.append(set(parts))
             continue
 
-        # 1) Hecho unario:  P(...)
+        # Hecho simple
         if ("forall" not in s) and ("->" not in s):
             clauses.append({s})
             continue
 
-        # 2) forall U: Ante -> Cons
+        # Regla general forall x,y: A -> B
         m = re.match(r"^forall([a-z,]+):(.+)->(.+)$", s)
         if not m:
-            # formato no soportado
             continue
-
-        uvars = [v for v in m.group(1).split(",") if v]      # universales
+        uvars = [v for v in m.group(1).split(",") if v]
         antecedent = m.group(2)
         consequent = m.group(3)
 
-        # 2.a) Antecedente puede venir parentetizado; normalizamos
         if antecedent.startswith("(") and antecedent.endswith(")"):
             antecedent = antecedent[1:-1]
         ants = split_conj(antecedent) if "^" in antecedent else [antecedent]
-
-        # helper: negaciones del antecedente
         neg_ants = {negate(a) if not a.startswith("¬") else a for a in ants}
 
-        # CASOS DEL CONSECUENTE:
-
-        # (i) exists v: T(...)
+        # exists en el consecuente
         m_ex = re.match(r"^\(exists([a-z,]+):([A-Za-z]+\([A-Za-z0-9_,]+\))\)$", consequent)
         if m_ex:
             evars = [v for v in m_ex.group(1).split(",") if v]
@@ -131,34 +122,31 @@ def fol_a_fnc_clausulas(fols, pregunta):
             clauses.append(neg_ants | {T_skol})
             continue
 
-        # (ii) forall w: ¬T(...)
+        # forall negado
         m_all_not = re.match(r"^\(forall([a-z,]+):¬([A-Za-z]+\([A-Za-z0-9_,]+\))\)$", consequent)
         if m_all_not:
-            # Las variables 'w' simplemente quedan como variables libres (universales) en la cláusula
             T = m_all_not.group(2)
             clauses.append(neg_ants | {negate(T)})
             continue
 
-        # (iii) Disyunción explícita en el consecuente:  (B v C v ...)
+        # Disyunción en consecuente
         if consequent.startswith("(") and consequent.endswith(")") and "v" in consequent:
             parts = set(split_disj(consequent[1:-1]))
             clauses.append(neg_ants | parts)
             continue
 
-        # (iv) Simple: P(...)  (=> ¬A v P)
+        # Simple
         clauses.append(neg_ants | {consequent})
 
-    # Negación de la pregunta
+    # Negación de la consulta
     q = norm(pregunta)
     clauses.append({negate(q)})
-
     return clauses
 
 # ---------------------------
-# Unificación (MGU)
+# Unificación
 # ---------------------------
-def es_variable(x):
-    return re.match(r'^[a-z]\w*$', x)
+def es_variable(x): return re.match(r'^[a-z]\w*$', x)
 
 def parsear_atom(a):
     pred = a.split('(')[0]
@@ -167,24 +155,15 @@ def parsear_atom(a):
     return pred, args
 
 def unificar(x, y, theta=None):
-    if theta is None:
-        theta = {}
-    if x == y:
-        return theta
-    if es_variable(x):
-        theta[x] = y
-        return theta
-    if es_variable(y):
-        theta[y] = x
-        return theta
-    p1, a1 = parsear_atom(x)
-    p2, a2 = parsear_atom(y)
-    if p1 != p2 or len(a1) != len(a2):
-        return None
+    if theta is None: theta = {}
+    if x == y: return theta
+    if es_variable(x): theta[x] = y; return theta
+    if es_variable(y): theta[y] = x; return theta
+    p1, a1 = parsear_atom(x); p2, a2 = parsear_atom(y)
+    if p1 != p2 or len(a1) != len(a2): return None
     for s1, s2 in zip(a1, a2):
         theta = unificar(s1, s2, theta)
-        if theta is None:
-            return None
+        if theta is None: return None
     return theta
 
 def aplicar_sust(clause, theta):
@@ -196,12 +175,11 @@ def aplicar_sust(clause, theta):
     return nueva
 
 # ---------------------------
-# Resolución con unificación integrada
+# Resolución con unificación
 # ---------------------------
 def complementarios_con_unificacion(lit1, lit2):
     neg1, neg2 = lit1.startswith("¬"), lit2.startswith("¬")
-    if neg1 == neg2:
-        return None
+    if neg1 == neg2: return None
     base1, base2 = (lit1[1:] if neg1 else lit1), (lit2[1:] if neg2 else lit2)
     return unificar(base1, base2, {})
 
@@ -219,11 +197,8 @@ def resolver(ci, cj):
 # Motor de resolución con formato bonito
 # ---------------------------
 def resolucion(clauses, verbose=True, guardar=True):
-    new = set()
-    paso = 1
-    reporte = []
+    new = set(); paso = 1; reporte = []
     print(f"\n{c.HEADER}=== Proceso de Resolución ==={c.ENDC}")
-
     while True:
         pares = list(combinations(clauses, 2))
         for (ci, cj) in pares:
@@ -236,18 +211,15 @@ def resolucion(clauses, verbose=True, guardar=True):
                 paso += 1
                 if frozenset() in resolvents:
                     print(f"\n{c.OKGREEN}✓ Se derivó la cláusula vacía → Conclusión demostrada{c.ENDC}")
-                    if guardar:
-                        guardar_reporte(reporte, True)
+                    if guardar: guardar_reporte(reporte, True)
                     return True
             new = new.union(resolvents)
         if new.issubset(set(map(frozenset, clauses))):
             print(f"\n{c.FAIL}✗ No se pudo derivar la cláusula vacía → Conclusión no demostrada{c.ENDC}")
-            if guardar:
-                guardar_reporte(reporte, False)
+            if guardar: guardar_reporte(reporte, False)
             return False
         for c_ in new:
-            if c_ not in clauses:
-                clauses.append(c_)
+            if c_ not in clauses: clauses.append(c_)
 
 # ---------------------------
 # Guardar reporte
@@ -257,48 +229,47 @@ def guardar_reporte(pasos, exito):
     with open(nombre, "w", encoding="utf-8") as f:
         f.write("Reporte de Inferencia por Resolución\n")
         f.write(f"Generado: {datetime.now()}\n\n")
-        for p in pasos:
-            f.write(p + "\n")
+        for p in pasos: f.write(p + "\n")
         f.write("\nResultado final:\n")
-        if exito:
-            f.write("✓ Se derivó la cláusula vacía → Conclusión demostrada\n")
-        else:
-            f.write("✗ No se pudo derivar la cláusula vacía → Conclusión no demostrada\n")
+        f.write("✓ Se derivó la cláusula vacía → Conclusión demostrada\n" if exito
+                else "✗ No se pudo derivar la cláusula vacía → Conclusión no demostrada\n")
     print(f"\n{c.OKGREEN}📄 Reporte guardado como 'reporte_resolucion.txt'{c.ENDC}")
 
 # ---------------------------
-# Interfaz
+# Interfaz con guía integrada
 # ---------------------------
 def main():
     print(f"{c.HEADER}=== Motor de Inferencia por Resolución (Entrada en FOL) ==={c.ENDC}")
-    print("Ingrese las fórmulas de la base de conocimiento en FOL.")
-    print("Use 'forall' para cuantificadores y '¬' para negaciones.")
-    print("Ejemplo:")
-    print("  Hombre(Marco)")
-    print("  Pompeyano(Marco)")
-    print("  forall x: Pompeyano(x) -> Romano(x)")
-    print("  fin\n")
+    print(f"{c.OKCYAN}Guía rápida de escritura FOL:{c.ENDC}\n")
+    print("""
+┌──────────────────────────┬───────────────────────┬────────────────────────────┬──────────────────────────────────────────────┐
+│ Conectivo / cuantificador │ Cómo escribirlo       │ También acepta             │ Ejemplos válidos                             │
+├──────────────────────────┼───────────────────────┼────────────────────────────┼──────────────────────────────────────────────┤
+│ Para todo                │ forall                │ ∀                         │ forall x: P(x) -> Q(x)                       │
+│ Existe (consecuente)     │ exists                │ ∃                         │ forall x: P(x) -> (exists z: R(z,x))         │
+│ Y / Conjunción           │ ^                     │ &  o  ∧                   │ forall x: (A(x) ^ B(x)) -> C(x)              │
+│ O / Disyunción           │ v                     │ ∨                         │ P(a) v Q(b)                                  │
+│ Implicación              │ ->                    │ →                         │ forall x: P(x) -> Q(x)                       │
+│ Negación                 │ ¬                     │ (recomendado usar ¬)       │ forall x: (A(x) ^ B(x)) -> ¬C(x)             │
+└──────────────────────────┴───────────────────────┴────────────────────────────┴──────────────────────────────────────────────┘
+Use 'fin' para terminar la base de conocimiento.
+""")
 
     base = []
     while True:
         s = input(f"  {len(base)+1}. ").strip()
-        if s.lower() == "fin":
-            break
-        if s:
-            base.append(s)
+        if s.lower() == "fin": break
+        if s: base.append(s)
 
     pregunta = input(f"\n{c.OKCYAN}Pregunta (en FOL, ej: Odia(Marco,Cesar)): {c.ENDC}").strip()
 
     clauses = fol_a_fnc_clausulas(base, pregunta)
     print(f"\n{c.BOLD}=== Cláusulas (FNC) ==={c.ENDC}")
-    for i, c_ in enumerate(clauses, 1):
-        print(f"{i}. {c_}")
+    for i, c_ in enumerate(clauses, 1): print(f"{i}. {c_}")
 
     resultado = resolucion([frozenset(c_) for c_ in clauses], verbose=True)
-    if resultado:
-        print(f"\n{c.OKGREEN}Conclusión: Sí, {pregunta} ✅{c.ENDC}")
-    else:
-        print(f"\n{c.FAIL}Conclusión: No se puede demostrar que {pregunta} ❌{c.ENDC}")
+    print(f"\n{c.OKGREEN}Conclusión: Sí, {pregunta} ✅{c.ENDC}" if resultado
+          else f"\n{c.FAIL}Conclusión: No se puede demostrar que {pregunta} ❌{c.ENDC}")
 
 if __name__ == "__main__":
     main()

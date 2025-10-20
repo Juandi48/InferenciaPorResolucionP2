@@ -1,0 +1,483 @@
+Reporte de Inferencia por Resolución
+Generado: 2025-10-19 21:00:06.234482
+
+Paso 001: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 002: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(Jack,y)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'}
+Paso 003: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 004: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,y)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 005: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 006: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'}
+Paso 007: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'}
+Paso 008: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Ama(Jack,x)', '¬Gato(x)'}
+Paso 009: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(Curiosidad,Tuna)'} ⟹ {'Mata(Jack,Tuna)'}
+Paso 010: {'Gato(Tuna)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Animal(Tuna)'}
+Paso 011: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 012: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(Jack,y)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'}
+Paso 013: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 014: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 015: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'}
+Paso 016: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'}
+Paso 017: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'}
+Paso 018: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'}
+Paso 019: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'}
+Paso 020: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'}
+Paso 021: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'}
+Paso 022: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'}
+Paso 023: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,y)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 024: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 025: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'}
+Paso 026: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'}
+Paso 027: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 028: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 029: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 030: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Mata(x,Tuna)', '¬Ama(z,x)'}
+Paso 031: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'}
+Paso 032: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'}
+Paso 033: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 034: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Ama(Jack,x)', '¬Gato(x)'}
+Paso 035: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'}
+Paso 036: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Animal(Jack)', '¬Animal(x)'}
+Paso 037: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 038: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 039: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Animal(Tuna)'} ⟹ {'Ama(Jack,Tuna)'}
+Paso 040: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'}
+Paso 041: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(Curiosidad,Tuna)'} ⟹ {'Mata(Jack,Tuna)'}
+Paso 042: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 043: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 044: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 045: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'}
+Paso 046: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 047: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 048: {'Gato(Tuna)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Animal(Tuna)'}
+Paso 049: {'Gato(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(z,Tuna)'}
+Paso 050: {'Gato(Tuna)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'Ama(Jack,Tuna)'}
+Paso 051: {'Gato(Tuna)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Tuna,Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'}
+Paso 052: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Gato(y)'}
+Paso 053: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 054: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'}
+Paso 055: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 056: {'Animal(x)', '¬Gato(x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'}
+Paso 057: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 058: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 059: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 060: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 061: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)'}
+Paso 062: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 063: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'}
+Paso 064: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)'}
+Paso 065: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'}
+Paso 066: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 067: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)'}
+Paso 068: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 069: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 070: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'}
+Paso 071: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 072: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 073: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(f_z(x)', '¬Animal(f_z(x)', '¬Ama(f_z(x,f_z(x)', '¬Mata(f_z(x,f_z(x)'}
+Paso 074: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 075: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 076: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 077: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 078: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 079: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Animal(Tuna)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 080: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 081: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 082: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 083: {'Animal(Tuna)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,Tuna),Jack)'}
+Paso 084: {'Ama(Jack,x)', '¬Gato(x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)'}
+Paso 085: {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'}
+Paso 086: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 087: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(Jack,y)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'}
+Paso 088: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 089: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 090: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'}
+Paso 091: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'}
+Paso 092: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'}
+Paso 093: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'}
+Paso 094: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'}
+Paso 095: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'}
+Paso 096: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'}
+Paso 097: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'}
+Paso 098: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Ama(x,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 099: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Gato(f_z(x)', '¬Animal(x)'}
+Paso 100: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Ama(f_z(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 101: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', '¬Ama(x,Jack)'}
+Paso 102: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Mata(f_z(x,x)', '¬Gato(f_z(x)', '¬Animal(x)'}
+Paso 103: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Animal(f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Ama(x,f_z(x)', '¬Gato(f_z(x)', '¬Animal(x)'}
+Paso 104: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Animal(f_z(f_z(x)', '¬Ama(f_z(f_z(f_z(x,f_z(f_z(f_z(x)', 'Ama(f_z(f_z(f_z(x,x),f_z(f_z(x)', '¬Gato(f_z(f_z(f_z(x)', '¬Animal(x)'}
+Paso 105: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(f_z(x,Jack)', '¬Animal(Tuna)', '¬Ama(x,Tuna)', '¬Gato(Tuna)'}
+Paso 106: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(x,Jack)', '¬Gato(Tuna)', '¬Ama(f_z(x,Tuna)', '¬Animal(Jack)'}
+Paso 107: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(Tuna,Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', 'Ama(f_z(f_z(Tuna,Tuna),f_z(Tuna)'}
+Paso 108: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'}
+Paso 109: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(f_z(x,Curiosidad)', '¬Animal(Tuna)', '¬Ama(x,Tuna)', '¬Gato(Tuna)'}
+Paso 110: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(x,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Animal(Curiosidad)', '¬Ama(f_z(x,Tuna)'}
+Paso 111: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Gato(y)', '¬Animal(y)', 'Ama(f_z(f_z(y,y),f_z(y)'}
+Paso 112: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(f_z(x,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Jack)', '¬Ama(x,Jack)'}
+Paso 113: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(f_z(x,Jack)', '¬Ama(x,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 114: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(f_z(f_z(Jack,y),f_z(f_z(Jack)', '¬Animal(y)'}
+Paso 115: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'}
+Paso 116: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(x,Tuna)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 117: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Ama(f_z(x,Jack)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 118: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'} ⟹ {'¬Ama(x,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 119: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'¬Animal(f_z(Jack)', 'Ama(f_z(f_z(Jack,x),f_z(Jack)', '¬Gato(Jack)', '¬Animal(x)'}
+Paso 120: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'} ⟹ {'Ama(f_z(f_z(Jack,Jack),f_z(Jack)', '¬Animal(f_z(Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 121: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,Tuna)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 122: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'} ⟹ {'Ama(f_z(f_z(x,Tuna),f_z(x)', '¬Animal(Tuna)', '¬Ama(f_z(x,Tuna)'}
+Paso 123: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Ama(x,Tuna)', '¬Gato(Tuna)'}
+Paso 124: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(f_z(x)', '¬Animal(f_z(x)', '¬Ama(f_z(x,f_z(x)', '¬Mata(f_z(x,f_z(x)'} ⟹ {'¬Ama(x,f_z(x)', '¬Gato(f_z(x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)'}
+Paso 125: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'}
+Paso 126: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', 'Ama(f_z(Jack,Tuna),Jack)'}
+Paso 127: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'¬Gato(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'}
+Paso 128: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(Jack,Tuna),Jack)'} ⟹ {'Ama(f_z(f_z(Jack,Tuna),f_z(Jack)', '¬Animal(Tuna)'}
+Paso 129: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)'} ⟹ {'Ama(f_z(f_z(Jack,Jack),f_z(Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 130: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Ama(x,x)', '¬Animal(x)'}
+Paso 131: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Animal(f_z(f_z(x)', '¬Animal(f_z(x)', '¬Ama(f_z(f_z(f_z(x,f_z(f_z(x)', '¬Gato(f_z(f_z(f_z(x)', 'Ama(f_z(f_z(f_z(x,f_z(x),f_z(f_z(x)'}
+Paso 132: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', '¬Ama(Tuna,Tuna)', '¬Ama(x,Jack)'}
+Paso 133: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'}
+Paso 134: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'}
+Paso 135: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Mata(Tuna,Tuna)', '¬Ama(z,Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)', '¬Ama(x,Tuna)'}
+Paso 136: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(x,Tuna)', '¬Gato(Tuna)'}
+Paso 137: {'Ama(f_z(x,y),x)', '¬Ama(x,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'¬Gato(y)', 'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'}
+Paso 138: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,y)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 139: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 140: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'}
+Paso 141: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'}
+Paso 142: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 143: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 144: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 145: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Mata(x,Tuna)', '¬Ama(z,x)'}
+Paso 146: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'}
+Paso 147: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'}
+Paso 148: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 149: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)', '¬Gato(Curiosidad)'}
+Paso 150: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Ama(Jack,Curiosidad)', '¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 151: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(f_z(x,f_z(x)', '¬Gato(f_z(x)', '¬Animal(x)'}
+Paso 152: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(Tuna,Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'} ⟹ {'¬Mata(Tuna,y)', '¬Ama(Tuna,Tuna)', '¬Animal(y)'}
+Paso 153: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 154: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 155: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'}
+Paso 156: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Gato(y)', '¬Mata(y,y)', '¬Animal(y)'}
+Paso 157: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 158: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 159: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 160: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(Curiosidad,Jack)', '¬Animal(Jack)'}
+Paso 161: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'}
+Paso 162: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'¬Mata(x,y)', '¬Gato(Jack)', '¬Animal(y)', '¬Animal(x)'}
+Paso 163: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,y)', '¬Gato(Jack)', '¬Animal(y)', '¬Animal(Jack)'}
+Paso 164: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'} ⟹ {'¬Mata(Tuna,y)', '¬Ama(Tuna,Tuna)', '¬Animal(y)'}
+Paso 165: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 166: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 167: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,Tuna)'} ⟹ {'¬Mata(Tuna,y)', '¬Animal(y)'}
+Paso 168: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 169: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Jack)'}
+Paso 170: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Jack)'}
+Paso 171: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 172: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,Tuna),Jack)'} ⟹ {'¬Mata(Tuna,y)', '¬Animal(y)'}
+Paso 173: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)'} ⟹ {'¬Mata(Jack,y)', '¬Gato(Jack)', '¬Animal(y)'}
+Paso 174: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(f_z(x,f_z(x)', '¬Animal(f_z(x)', '¬Animal(y)', '¬Mata(f_z(x,y)', '¬Gato(f_z(f_z(x)'}
+Paso 175: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 176: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Gato(Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 177: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(Jack,Jack)', '¬Gato(Jack)'}
+Paso 178: {'¬Mata(x,y)', '¬Animal(y)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'¬Gato(y)', '¬Mata(y,y)', '¬Animal(y)'}
+Paso 179: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Ama(Jack,x)', '¬Gato(x)'}
+Paso 180: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'}
+Paso 181: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Animal(Jack)', '¬Animal(x)'}
+Paso 182: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 183: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 184: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Animal(Tuna)'} ⟹ {'Ama(Jack,Tuna)'}
+Paso 185: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'}
+Paso 186: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 187: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)', '¬Animal(x)'}
+Paso 188: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Curiosidad)', '¬Animal(Tuna)'}
+Paso 189: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)'}
+Paso 190: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(Jack,x)', '¬Gato(Jack)', '¬Animal(x)'}
+Paso 191: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', '¬Gato(Tuna)'}
+Paso 192: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Animal(Jack)'}
+Paso 193: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Gato(Tuna)', '¬Animal(Jack)'}
+Paso 194: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(Jack,Tuna)', '¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 195: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(Jack,Curiosidad)'}
+Paso 196: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(Jack,Jack)'}
+Paso 197: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(Jack,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Jack)'}
+Paso 198: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 199: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 200: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 201: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)'}
+Paso 202: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'¬Mata(x,Tuna)', '¬Animal(x)'}
+Paso 203: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'} ⟹ {'¬Animal(Tuna)', 'Ama(f_z(Jack,Tuna),Jack)'}
+Paso 204: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 205: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(x)'}
+Paso 206: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Curiosidad)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 207: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Animal(Jack)'}
+Paso 208: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 209: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Mata(Tuna,Tuna)', '¬Ama(z,Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)'}
+Paso 210: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 211: {'Ama(Jack,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Gato(Jack)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 212: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(Curiosidad,Tuna)'} ⟹ {'Mata(Jack,Tuna)'}
+Paso 213: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 214: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 215: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 216: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'}
+Paso 217: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 218: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 219: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 220: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)'} ⟹ {'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 221: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 222: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 223: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Curiosidad)'}
+Paso 224: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 225: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 226: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Gato(Curiosidad)'}
+Paso 227: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 228: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 229: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Gato(Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 230: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 231: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 232: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Tuna,Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 233: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Gato(Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 234: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 235: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Gato(y)'} ⟹ {'¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 236: {'Mata(Jack,Tuna)', 'Mata(Curiosidad,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Gato(y)'} ⟹ {'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 237: {'Gato(Tuna)'} ⊗ {'Animal(x)', '¬Gato(x)'} ⟹ {'Animal(Tuna)'}
+Paso 238: {'Gato(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(z,Tuna)'}
+Paso 239: {'Gato(Tuna)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'Ama(Jack,Tuna)'}
+Paso 240: {'Gato(Tuna)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Tuna,Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'}
+Paso 241: {'Gato(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(Tuna,Tuna)'}
+Paso 242: {'Gato(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 243: {'Gato(Tuna)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(Tuna,y)', '¬Animal(y)'}
+Paso 244: {'Gato(Tuna)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(Tuna,y)', '¬Ama(Tuna,Tuna)', '¬Animal(y)'}
+Paso 245: {'Gato(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Ama(z,Jack)'}
+Paso 246: {'Gato(Tuna)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 247: {'Gato(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)'}
+Paso 248: {'Gato(Tuna)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'}
+Paso 249: {'Gato(Tuna)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 250: {'Gato(Tuna)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)'}
+Paso 251: {'Gato(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)'}
+Paso 252: {'Gato(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 253: {'Gato(Tuna)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)'}
+Paso 254: {'Gato(Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)'}
+Paso 255: {'Gato(Tuna)'} ⊗ {'¬Mata(y,y)', '¬Gato(y)'} ⟹ {'¬Mata(Tuna,Tuna)'}
+Paso 256: {'Gato(Tuna)'} ⊗ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Tuna)'}
+Paso 257: {'Gato(Tuna)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'Ama(f_z(Jack,Tuna),Jack)'}
+Paso 258: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Gato(y)'}
+Paso 259: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 260: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'}
+Paso 261: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 262: {'Animal(x)', '¬Gato(x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'}
+Paso 263: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'}
+Paso 264: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)', '¬Gato(Curiosidad)'}
+Paso 265: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)'}
+Paso 266: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 267: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Ama(Tuna,Curiosidad)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 268: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Ama(Curiosidad,Curiosidad)', '¬Gato(Curiosidad)'}
+Paso 269: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(y,y)', '¬Gato(y)'}
+Paso 270: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 271: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(y,y)', '¬Ama(y,y)', '¬Gato(y)'}
+Paso 272: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'Ama(f_z(f_z(x,x),f_z(x)', '¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', '¬Gato(x)'}
+Paso 273: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 274: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Curiosidad)'}
+Paso 275: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 276: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 277: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', 'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 278: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'Ama(f_z(y,y),y)', '¬Gato(y)'}
+Paso 279: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 280: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(Jack,Jack)', '¬Animal(Jack)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 281: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(Jack,Jack)', '¬Animal(Jack)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Animal(Jack)', '¬Gato(x)'}
+Paso 282: {'Animal(x)', '¬Gato(x)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Gato(y)'}
+Paso 283: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Jack)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)'}
+Paso 284: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Ama(Tuna,Jack)', '¬Gato(Tuna)', '¬Animal(Jack)'}
+Paso 285: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Gato(Tuna)'}
+Paso 286: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 287: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)'} ⟹ {'¬Gato(Tuna)'}
+Paso 288: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Gato(x)'}
+Paso 289: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'} ⟹ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Gato(x)'}
+Paso 290: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)'}
+Paso 291: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Gato(f_z(x)', '¬Animal(f_z(x)', '¬Ama(f_z(x,f_z(x)', '¬Mata(f_z(x,f_z(x)'} ⟹ {'¬Gato(f_z(f_z(x)', '¬Ama(f_z(f_z(x,f_z(f_z(x)', '¬Gato(f_z(x)', '¬Mata(f_z(f_z(x,f_z(f_z(x)'}
+Paso 292: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 293: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Gato(Tuna)'}
+Paso 294: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Jack)', 'Mata(Curiosidad,Tuna)'}
+Paso 295: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Animal(Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 296: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Gato(Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 297: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Gato(Tuna)'}
+Paso 298: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Mata(y,y)', '¬Gato(y)'}
+Paso 299: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Gato(x)'}
+Paso 300: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 301: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Gato(x)'}
+Paso 302: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Ama(f_z(x,x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(f_z(x,f_z(x)', '¬Gato(f_z(x)', '¬Mata(f_z(f_z(x,f_z(f_z(x)', '¬Animal(f_z(x)'}
+Paso 303: {'Animal(x)', '¬Gato(x)'} ⊗ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'Mata(Jack,Tuna)', '¬Gato(Tuna)', '¬Gato(Curiosidad)'}
+Paso 304: {'Animal(x)', '¬Gato(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Gato(Jack)', '¬Ama(Jack,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'}
+Paso 305: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 306: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 307: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 308: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', '¬Ama(x,Jack)'}
+Paso 309: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)'}
+Paso 310: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 311: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)'}
+Paso 312: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Jack)'}
+Paso 313: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Jack)'}
+Paso 314: {'¬Mata(Curiosidad,Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', '¬Gato(Jack)'}
+Paso 315: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 316: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 317: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 318: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(x)'}
+Paso 319: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 320: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'}
+Paso 321: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Gato(Curiosidad)'}
+Paso 322: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(Tuna,Curiosidad)', '¬Animal(Curiosidad)'}
+Paso 323: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(x,f_z(x)', '¬Gato(x)', '¬Mata(x,x)', '¬Gato(f_z(x)', '¬Animal(x)'}
+Paso 324: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(Tuna,Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(Tuna,Tuna)', '¬Gato(Tuna)'}
+Paso 325: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 326: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 327: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 328: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'}
+Paso 329: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'}
+Paso 330: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 331: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 332: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(Tuna,Jack)', '¬Animal(Jack)'}
+Paso 333: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 334: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'¬Mata(x,x)', '¬Gato(Jack)', '¬Animal(x)', '¬Gato(x)'}
+Paso 335: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 336: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(Tuna,Tuna)', '¬Gato(Tuna)'}
+Paso 337: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 338: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 339: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(Jack,Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Gato(Tuna)'}
+Paso 340: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 341: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Animal(Jack)'}
+Paso 342: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Gato(Jack)'}
+Paso 343: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 344: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,Tuna),Jack)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Gato(Tuna)'}
+Paso 345: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)'}
+Paso 346: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(f_z(x,f_z(x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)', '¬Gato(f_z(f_z(x)', '¬Gato(f_z(x)'}
+Paso 347: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 348: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Gato(Curiosidad)'}
+Paso 349: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(Jack,Jack)', '¬Gato(Jack)'}
+Paso 350: {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(z,x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'¬Mata(y,y)', '¬Gato(y)'}
+Paso 351: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)'}
+Paso 352: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'}
+Paso 353: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 354: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)'}
+Paso 355: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 356: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Ama(x,Curiosidad)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 357: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 358: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)'}
+Paso 359: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 360: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'}
+Paso 361: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 362: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(x,Jack)', '¬Animal(Jack)'}
+Paso 363: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)'}
+Paso 364: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 365: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 366: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)'}
+Paso 367: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)'}
+Paso 368: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Jack)'}
+Paso 369: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 370: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 371: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 372: {'¬Mata(y,y)', '¬Animal(y)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', '¬Gato(Jack)'}
+Paso 373: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 374: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 375: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'}
+Paso 376: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 377: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 378: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(f_z(x)', '¬Animal(f_z(x)', '¬Ama(f_z(x,f_z(x)', '¬Mata(f_z(x,f_z(x)'}
+Paso 379: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 380: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Gato(Curiosidad)'}
+Paso 381: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Ama(Tuna,Curiosidad)', '¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 382: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Gato(f_z(f_z(f_z(x)', '¬Mata(f_z(f_z(x,f_z(f_z(x)', '¬Ama(f_z(f_z(f_z(x,f_z(f_z(f_z(x)', '¬Animal(f_z(f_z(x)'}
+Paso 383: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(Tuna,Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 384: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(z,Jack)', '¬Gato(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Gato(Tuna)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'}
+Paso 385: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 386: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 387: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Gato(y)', '¬Mata(y,y)', '¬Animal(y)'}
+Paso 388: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'¬Mata(y,y)', '¬Animal(y)'}
+Paso 389: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 390: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Gato(Tuna)', '¬Ama(z,Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Gato(Tuna)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 391: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Jack)', '¬Ama(Tuna,Tuna)', '¬Animal(Jack)'}
+Paso 392: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 393: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'¬Animal(f_z(Jack)', '¬Mata(f_z(Jack,f_z(Jack)', '¬Gato(Jack)'}
+Paso 394: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 395: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(x,Tuna)', 'Ama(f_z(x,Tuna),x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 396: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Gato(Tuna)', '¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 397: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 398: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(Jack,Tuna)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)'}
+Paso 399: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 400: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Animal(Jack)'}
+Paso 401: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Gato(Jack)'}
+Paso 402: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Mata(Jack,Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 403: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(Jack,Tuna),Jack)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Animal(Tuna)'}
+Paso 404: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)'} ⟹ {'¬Mata(Jack,Jack)', '¬Gato(Jack)', '¬Animal(Jack)'}
+Paso 405: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Ama(f_z(x,x)', '¬Gato(f_z(x)', 'Ama(f_z(f_z(x,f_z(x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(f_z(x,f_z(x)', '¬Gato(f_z(f_z(x)', '¬Animal(f_z(x)', '¬Mata(f_z(x,f_z(x)'}
+Paso 406: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Ama(z,Jack)'}
+Paso 407: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Tuna,Tuna)', '¬Gato(Curiosidad)'}
+Paso 408: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', '¬Ama(Tuna,Tuna)', '¬Gato(Jack)'}
+Paso 409: {'¬Mata(x,x)', '¬Ama(x,x)', '¬Animal(x)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'¬Gato(y)', '¬Mata(y,y)', '¬Animal(y)'}
+Paso 410: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(Tuna)'}
+Paso 411: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Gato(Tuna)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 412: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Jack)'}
+Paso 413: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', '¬Gato(Jack)'}
+Paso 414: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'¬Ama(z,Jack)'}
+Paso 415: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 416: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Gato(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 417: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 418: {'Mata(Jack,Tuna)'} ⊗ {'¬Mata(y,y)', '¬Gato(y)'} ⟹ {'¬Gato(Tuna)'}
+Paso 419: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 420: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 421: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 422: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 423: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 424: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Gato(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 425: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Jack)'}
+Paso 426: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(Jack,Jack)', '¬Gato(Jack)'}
+Paso 427: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(Curiosidad,f_z(Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(f_z(Curiosidad)', '¬Animal(Curiosidad)'}
+Paso 428: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Animal(Curiosidad)', '¬Gato(Curiosidad)'}
+Paso 429: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Animal(Curiosidad)'}
+Paso 430: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Animal(Curiosidad)', '¬Gato(Jack)'}
+Paso 431: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 432: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 433: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 434: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 435: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'¬Mata(y,y)', '¬Gato(y)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Gato(Tuna)'}
+Paso 436: {'¬Ama(z,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'}
+Paso 437: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Animal(Tuna)'} ⟹ {'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'}
+Paso 438: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(Jack,x)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 439: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(f_z(x,x),x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Ama(Jack,Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 440: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 441: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 442: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 443: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Gato(Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 444: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)', '¬Gato(Curiosidad)'}
+Paso 445: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Gato(f_z(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(f_z(Jack,f_z(Jack)', '¬Animal(Jack)'}
+Paso 446: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 447: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Animal(Jack)'}
+Paso 448: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,x),Jack)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 449: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Animal(x)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 450: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,Tuna)', '¬Ama(z,x)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'}
+Paso 451: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Animal(x)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 452: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(x,x)', '¬Ama(x,x)', '¬Gato(x)'} ⟹ {'¬Ama(Tuna,Tuna)', '¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 453: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(y,y)', '¬Animal(y)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 454: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Gato(Jack)', 'Ama(f_z(Jack,Jack),Jack)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 455: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'¬Mata(y,y)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 456: {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Ama(z,Jack)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Gato(y)'} ⟹ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)', '¬Gato(Jack)'}
+Paso 457: {'Animal(Tuna)'} ⊗ {'Ama(f_z(Jack,y),Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(Jack,Tuna),Jack)'}
+Paso 458: {'Animal(Tuna)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Ama(Tuna,Tuna)'}
+Paso 459: {'Animal(Tuna)'} ⊗ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Tuna)', '¬Gato(Curiosidad)'} ⟹ {'¬Ama(Curiosidad,Curiosidad)', 'Mata(Jack,Tuna)', '¬Gato(Curiosidad)'}
+Paso 460: {'Animal(Tuna)'} ⊗ {'¬Mata(x,x)', '¬Gato(x)', '¬Ama(x,x)', '¬Animal(x)'} ⟹ {'¬Mata(Tuna,Tuna)', '¬Gato(Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 461: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'} ⟹ {'¬Ama(x,Curiosidad)', 'Mata(Jack,Tuna)', '¬Animal(Curiosidad)'}
+Paso 462: {'Animal(Tuna)'} ⊗ {'¬Mata(x,y)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(x,Tuna)', '¬Gato(x)'}
+Paso 463: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Jack)'}
+Paso 464: {'Animal(Tuna)'} ⊗ {'¬Mata(x,y)', '¬Ama(x,x)', '¬Animal(y)', '¬Gato(x)'} ⟹ {'¬Mata(x,Tuna)', '¬Ama(x,x)', '¬Gato(x)'}
+Paso 465: {'Animal(Tuna)'} ⊗ {'¬Gato(f_z(x)', '¬Ama(f_z(x,f_z(x)', 'Ama(f_z(f_z(x,x),f_z(x)', '¬Animal(x)'} ⟹ {'¬Ama(f_z(Tuna,f_z(Tuna)', '¬Gato(f_z(Tuna)', 'Ama(f_z(f_z(Tuna,Tuna),f_z(Tuna)'}
+Paso 466: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Tuna)', '¬Gato(Tuna)', '¬Ama(z,Jack)'}
+Paso 467: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'} ⟹ {'¬Animal(Curiosidad)', 'Mata(Jack,Tuna)'}
+Paso 468: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Ama(z,Tuna)', '¬Gato(Tuna)'}
+Paso 469: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'} ⟹ {'Mata(Jack,Tuna)', '¬Ama(Tuna,Tuna)'}
+Paso 470: {'Animal(Tuna)'} ⊗ {'¬Animal(y)', 'Ama(f_z(y,y),y)', '¬Gato(y)'} ⟹ {'¬Gato(Tuna)', 'Ama(f_z(Tuna,Tuna),Tuna)'}
+Paso 471: {'Animal(Tuna)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)', '¬Ama(z,Jack)'} ⟹ {'¬Ama(z,Curiosidad)', '¬Ama(z,Jack)'}
+Paso 472: {'Animal(Tuna)'} ⊗ {'¬Mata(Jack,Jack)', '¬Animal(Jack)', '¬Animal(x)'} ⟹ {'¬Mata(Jack,Jack)', '¬Animal(Jack)'}
+Paso 473: {'Animal(Tuna)'} ⊗ {'Ama(f_z(f_z(Jack,y),f_z(Jack)', '¬Animal(y)'} ⟹ {'Ama(f_z(f_z(Jack,Tuna),f_z(Jack)'}
+Paso 474: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', '¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'} ⟹ {'¬Animal(Jack)', 'Mata(Curiosidad,Tuna)', '¬Ama(x,Jack)'}
+Paso 475: {'Animal(Tuna)'} ⊗ {'¬Ama(z,Curiosidad)', '¬Animal(Tuna)'} ⟹ {'¬Ama(z,Curiosidad)'}
+Paso 476: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)', 'Mata(Curiosidad,Tuna)'} ⟹ {'Mata(Curiosidad,Tuna)'}
+Paso 477: {'Animal(Tuna)'} ⊗ {'¬Animal(Tuna)'} ⟹ set()
+
+Resultado final:
+✓ Se derivó la cláusula vacía → Conclusión demostrada
