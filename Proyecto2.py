@@ -1,174 +1,210 @@
 # -*- coding: utf-8 -*-
 """
-Motor de Inferencia basado en Resolución (con spaCy NLP generalizado)
+Proyecto 2 — Motor de Inferencia basado en Resolución (Bonito y con Reporte)
 Autor: Juan Diego Rojas Vargas
 
-Funcionalidades:
- - Entrada en lenguaje natural
- - Extracción automática de sujeto–verbo–objeto con spaCy
- - Conversión a Lógica de Primer Orden (FOL)
- - Transformación a Forma Normal Conjuntiva (FNC)
- - Resolución por refutación con unificación (MGU)
-
-Requisitos:
-   pip install spacy
-   python -m spacy download es_core_news_sm
+Incluye:
+ - Entrada en Lógica de Primer Orden (FOL)
+ - Resolución con Unificación (MGU)
+ - Salida formateada con colores y estructura
+ - Reporte completo en archivo 'reporte_resolucion.txt'
 """
 
 import re
-import spacy
 from itertools import combinations
+from datetime import datetime
 
-# -----------------------------------------------------
-# Cargar modelo de lenguaje
-# -----------------------------------------------------
-nlp = spacy.load("es_core_news_sm")
+# Colores ANSI
+class c:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    BOLD = '\033[1m'
+    ENDC = '\033[0m'
 
-# -----------------------------------------------------
-# Normalización de texto
-# -----------------------------------------------------
-def norm(s: str) -> str:
-    s = s.strip().replace("¿", "").replace("?", "").replace(".", "")
-    s = s.replace(",", "").lower()
-    return s
+# ---------------------------
+# Limpieza y utilidades
+# ---------------------------
+def limpiar(s):
+    return (s.replace(" ", "")
+             .replace("∀", "forall")
+             .replace("^", "∧")
+             .replace("v", "∨")
+             .replace("→", "->")
+             .strip())
 
-# -----------------------------------------------------
-# NLP → FOL (automático)
-# -----------------------------------------------------
-def sentence_to_fol(sentence: str):
-    """
-    Convierte una oración en español a un predicado lógico simple
-    usando extracción de sujeto, verbo y objeto.
-    """
-    doc = nlp(sentence)
-    sujeto, verbo, objeto = None, None, None
-
-    for token in doc:
-        # Sujeto (persona, entidad)
-        if token.dep_ in ("nsubj", "nsubj:pass"):
-            sujeto = token.text.capitalize()
-        # Verbo principal
-        if token.pos_ == "VERB":
-            verbo = token.lemma_.capitalize()
-        # Objeto directo o indirecto
-        if token.dep_ in ("obj", "obl"):
-            objeto = token.text.capitalize()
-
-    if sujeto and verbo and objeto:
-        return f"{verbo}({sujeto},{objeto})"
-    elif sujeto and verbo:
-        return f"{verbo}({sujeto})"
-    else:
-        # fallback: usa tokens principales
-        tokens = [t.lemma_.capitalize() for t in doc if not t.is_stop]
-        if len(tokens) == 1:
-            return tokens[0]
-        elif len(tokens) == 2:
-            return f"{tokens[1]}({tokens[0]})"
-        elif len(tokens) >= 3:
-            return f"{tokens[1]}({tokens[0]},{tokens[2]})"
-        else:
-            return sentence
-
-# -----------------------------------------------------
-# Conversión a FNC (simplificada)
-# -----------------------------------------------------
-def fol_to_clauses(fols, question):
+# ---------------------------
+# Conversión FOL → FNC
+# ---------------------------
+def fol_a_fnc_clausulas(fols, pregunta):
     clauses = []
+
     for f in fols:
-        if "forall" in f or "→" in f or "->" in f:
-            # ignoramos reglas universales complejas en este modo automático
+        f = limpiar(f)
+
+        # Hechos directos
+        if "forall" not in f and "->" not in f:
+            clauses.append({f})
             continue
-        clauses.append({f})
-    # negación de la pregunta
-    q = question.replace(" ", "").replace("?", "")
+
+        # Reglas tipo: forall x: P(x) -> Q(x)
+        m = re.match(r"^forall[ a-z,]*:([A-Za-z]+\([a-zA-Z,]+\))->([A-Za-z]+\([a-zA-Z,]+\))$", f)
+        if m:
+            clauses.append({f"¬{m.group(1)}", m.group(2)})
+            continue
+
+        # Reglas tipo: forall x: P(x) -> (Q(x) ∨ R(x))
+        m = re.match(r"^forall[ a-z,]*:([A-Za-z]+\([a-zA-Z,]+\))->\((.+)\)$", f)
+        if m:
+            ant = m.group(1)
+            cons = [p.strip() for p in m.group(2).split("∨")]
+            clauses.append({f"¬{ant}", *cons})
+            continue
+
+        # Reglas tipo: forall x,y: (A ∧ B ∧ C) -> ¬D
+        m = re.match(r"^forall[ a-z,]*:\((.+)\)->(¬[A-Za-z]+\([a-zA-Z,]+\))$", f)
+        if m:
+            ants = [p.strip() for p in m.group(1).split("∧")]
+            cons = m.group(2)
+            neg_ants = {f"¬{a}" if not a.startswith("¬") else a for a in ants}
+            clauses.append(neg_ants | {cons})
+            continue
+
+    # Agregar negación de la pregunta
+    q = limpiar(pregunta)
     if not q.startswith("¬"):
         clauses.append({f"¬{q}"})
+    else:
+        clauses.append({q})
     return clauses
 
-# -----------------------------------------------------
-# Unificación
-# -----------------------------------------------------
-def is_var(x):
-    return bool(re.match(r'^[a-z]\w*$', x))
+# ---------------------------
+# Unificación (MGU)
+# ---------------------------
+def es_variable(x):
+    return re.match(r'^[a-z]\w*$', x)
 
-def parse_atom(atom):
-    pred = atom.split('(')[0]
-    args = atom[atom.find('(')+1:atom.find(')')].split(',')
-    args = [a.strip() for a in args]
+def parsear_atom(a):
+    pred = a.split('(')[0]
+    args = a[a.find('(')+1:a.find(')')].split(',')
+    args = [arg.strip() for arg in args if arg.strip()]
     return pred, args
 
-def unify(x, y, theta=None):
+def unificar(x, y, theta=None):
     if theta is None:
         theta = {}
     if x == y:
         return theta
-    if is_var(x):
+    if es_variable(x):
         theta[x] = y
         return theta
-    if is_var(y):
+    if es_variable(y):
         theta[y] = x
         return theta
-    px, ax = parse_atom(x)
-    py, ay = parse_atom(y)
-    if px != py or len(ax) != len(ay):
+    p1, a1 = parsear_atom(x)
+    p2, a2 = parsear_atom(y)
+    if p1 != p2 or len(a1) != len(a2):
         return None
-    for a1, a2 in zip(ax, ay):
-        theta = unify(a1, a2, theta)
+    for s1, s2 in zip(a1, a2):
+        theta = unificar(s1, s2, theta)
         if theta is None:
             return None
     return theta
 
-def apply_subst(clause, theta):
-    new = set()
+def aplicar_sust(clause, theta):
+    nueva = set()
     for lit in clause:
         for var, val in theta.items():
             lit = re.sub(rf'\b{var}\b', val, lit)
-        new.add(lit)
-    return new
+        nueva.add(lit)
+    return nueva
 
-def complementary(a, b):
-    return a == f"¬{b}" or b == f"¬{a}"
+# ---------------------------
+# Resolución con unificación integrada
+# ---------------------------
+def complementarios_con_unificacion(lit1, lit2):
+    neg1, neg2 = lit1.startswith("¬"), lit2.startswith("¬")
+    if neg1 == neg2:
+        return None
+    base1, base2 = (lit1[1:] if neg1 else lit1), (lit2[1:] if neg2 else lit2)
+    return unificar(base1, base2, {})
 
-def resolve(ci, cj):
+def resolver(ci, cj):
     resolvents = set()
     for di in ci:
         for dj in cj:
-            if complementary(di, dj):
-                di_clean = di.replace("¬", "")
-                dj_clean = dj.replace("¬", "")
-                theta = unify(di_clean, dj_clean, {})
-                if theta is not None:
-                    new_clause = (apply_subst(ci - {di}, theta) |
-                                  apply_subst(cj - {dj}, theta))
-                    resolvents.add(frozenset(new_clause))
+            theta = complementarios_con_unificacion(di, dj)
+            if theta is not None:
+                nueva = aplicar_sust(ci - {di}, theta) | aplicar_sust(cj - {dj}, theta)
+                resolvents.add(frozenset(nueva))
     return resolvents
 
-def resolution_algorithm(clauses):
-    print("\n=== Proceso de Resolución ===")
+# ---------------------------
+# Motor de resolución con formato bonito
+# ---------------------------
+def resolucion(clauses, verbose=True, guardar=True):
     new = set()
+    paso = 1
+    reporte = []
+    print(f"\n{c.HEADER}=== Proceso de Resolución ==={c.ENDC}")
+
     while True:
-        pairs = list(combinations(clauses, 2))
-        for (ci, cj) in pairs:
-            resolvents = resolve(ci, cj)
-            if frozenset() in resolvents:
-                print("✓ Se derivó la cláusula vacía → Conclusión demostrada")
-                return True
+        pares = list(combinations(clauses, 2))
+        for (ci, cj) in pares:
+            resolvents = resolver(ci, cj)
+            for r in resolvents:
+                linea = f"Paso {paso:03}: {set(ci)} ⊗ {set(cj)} ⟹ {set(r)}"
+                reporte.append(linea)
+                if verbose:
+                    print(f"{c.OKBLUE}Paso {paso:03}:{c.ENDC} {set(ci)} {c.BOLD}⊗{c.ENDC} {set(cj)} {c.OKCYAN}⟹{c.ENDC} {set(r)}")
+                paso += 1
+                if frozenset() in resolvents:
+                    print(f"\n{c.OKGREEN}✓ Se derivó la cláusula vacía → Conclusión demostrada{c.ENDC}")
+                    if guardar:
+                        guardar_reporte(reporte, True)
+                    return True
             new = new.union(resolvents)
         if new.issubset(set(map(frozenset, clauses))):
-            print("✗ No se pudo derivar la cláusula vacía → Conclusión no demostrada")
+            print(f"\n{c.FAIL}✗ No se pudo derivar la cláusula vacía → Conclusión no demostrada{c.ENDC}")
+            if guardar:
+                guardar_reporte(reporte, False)
             return False
-        for c in new:
-            if c not in clauses:
-                clauses.append(c)
+        for c_ in new:
+            if c_ not in clauses:
+                clauses.append(c_)
 
-# -----------------------------------------------------
-# Interfaz por consola
-# -----------------------------------------------------
+# ---------------------------
+# Guardar reporte
+# ---------------------------
+def guardar_reporte(pasos, exito):
+    nombre = "reporte_resolucion.txt"
+    with open(nombre, "w", encoding="utf-8") as f:
+        f.write("Reporte de Inferencia por Resolución\n")
+        f.write(f"Generado: {datetime.now()}\n\n")
+        for p in pasos:
+            f.write(p + "\n")
+        f.write("\nResultado final:\n")
+        if exito:
+            f.write("✓ Se derivó la cláusula vacía → Conclusión demostrada\n")
+        else:
+            f.write("✗ No se pudo derivar la cláusula vacía → Conclusión no demostrada\n")
+    print(f"\n{c.OKGREEN}📄 Reporte guardado como 'reporte_resolucion.txt'{c.ENDC}")
+
+# ---------------------------
+# Interfaz
+# ---------------------------
 def main():
-    print("=== Motor de Inferencia con NLP (spaCy) ===")
-    print("Ingrese su base de conocimiento en lenguaje natural.")
-    print("Escriba 'fin' para terminar.\n")
+    print(f"{c.HEADER}=== Motor de Inferencia por Resolución (Entrada en FOL) ==={c.ENDC}")
+    print("Ingrese las fórmulas de la base de conocimiento en FOL.")
+    print("Use 'forall' para cuantificadores y '¬' para negaciones.")
+    print("Ejemplo:")
+    print("  Hombre(Marco)")
+    print("  Pompeyano(Marco)")
+    print("  forall x: Pompeyano(x) -> Romano(x)")
+    print("  fin\n")
 
     base = []
     while True:
@@ -178,26 +214,18 @@ def main():
         if s:
             base.append(s)
 
-    pregunta = input("\nPregunta: ").strip()
+    pregunta = input(f"\n{c.OKCYAN}Pregunta (en FOL, ej: Odia(Marco,Cesar)): {c.ENDC}").strip()
 
-    # Paso 1: NL → FOL
-    fols = [sentence_to_fol(s) for s in base]
-    print("\n=== FOL generado ===")
-    for f in fols:
-        print(" -", f)
+    clauses = fol_a_fnc_clausulas(base, pregunta)
+    print(f"\n{c.BOLD}=== Cláusulas (FNC) ==={c.ENDC}")
+    for i, c_ in enumerate(clauses, 1):
+        print(f"{i}. {c_}")
 
-    # Paso 2: FOL → FNC (simplificada)
-    clauses = fol_to_clauses(fols, sentence_to_fol(pregunta))
-    print("\n=== Cláusulas FNC ===")
-    for i, c in enumerate(clauses, 1):
-        print(f" {i}. {c}")
-
-    # Paso 3: Resolución
-    result = resolution_algorithm([frozenset(c) for c in clauses])
-    if result:
-        print(f"\nConclusión: Sí, {pregunta} ✅")
+    resultado = resolucion([frozenset(c_) for c_ in clauses], verbose=True)
+    if resultado:
+        print(f"\n{c.OKGREEN}Conclusión: Sí, {pregunta} ✅{c.ENDC}")
     else:
-        print(f"\nConclusión: No se puede demostrar que {pregunta} ❌")
+        print(f"\n{c.FAIL}Conclusión: No se puede demostrar que {pregunta} ❌{c.ENDC}")
 
 if __name__ == "__main__":
     main()
