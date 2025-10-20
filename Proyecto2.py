@@ -40,45 +40,118 @@ def limpiar(s):
 # Conversión FOL → FNC
 # ---------------------------
 def fol_a_fnc_clausulas(fols, pregunta):
+    """
+    Conversor FOL -> FNC para los patrones del curso, con skolemización básica:
+      - Hechos:                 P(a), P(a) ∨ Q(b)
+      - ∀…: A(x) -> B(x)
+      - ∀…: A(x) -> (B(x) ∨ C(x))
+      - ∀…: (A ^ B ^ ...) -> ¬D
+      - ∀…: (A ^ B ^ ...) -> ∃v  T(...)
+      - ∀…: (A ^ B ^ ...) -> ∀v  ¬T(...)
+
+    Notas:
+      - Usa '∧' o '&' para AND y '∨' o 'v' para OR.
+      - Para '∃v' en el consecuente, crea función de Skolem f_v(universales_en_alcance).
+      - Si no hay universales, usa constante Skolem c_v.
+    """
+    def norm(s):
+        return (s.replace(" ", "")
+                 .replace("∀", "forall")
+                 .replace("∧", "^").replace("&", "^")
+                 .replace("∨", "v").replace("→", "->"))
+
+    def split_conj(s):
+        return [p for p in s.split("^") if p]
+
+    def split_disj(s):
+        return [p for p in s.split("v") if p]
+
+    def negate(atom):
+        return atom if atom.startswith("¬") else f"¬{atom}"
+
+    def skolemize_existential(pred_str, evars, uvars):
+        """
+        Reemplaza cada existencial 'v' en pred_str por f_v(uvars) o c_v si uvars=[]
+        pred_str: e.g. 'Ama(z,x)'
+        evars:    lista de variables existenciales, e.g. ['z']
+        uvars:    lista de variables universales en alcance, e.g. ['x','y']
+        """
+        out = pred_str
+        args = ",".join(uvars)
+        for v in evars:
+            if uvars:
+                sk = f"f_{v}({args})"
+            else:
+                sk = f"c_{v}"
+            out = re.sub(rf"\b{v}\b", sk, out)
+        return out
+
     clauses = []
 
     for f in fols:
-        f = limpiar(f)
+        s = norm(f)
 
-        # Hechos directos
-        if "forall" not in f and "->" not in f:
-            clauses.append({f})
+        # 0) Hecho disyuntivo directo:  P(...) v Q(...)  (lo tomamos como cláusula)
+        if ("forall" not in s) and ("->" not in s) and ("v" in s):
+            parts = split_disj(s)
+            clauses.append(set(parts))
             continue
 
-        # Reglas tipo: forall x: P(x) -> Q(x)
-        m = re.match(r"^forall[ a-z,]*:([A-Za-z]+\([a-zA-Z,]+\))->([A-Za-z]+\([a-zA-Z,]+\))$", f)
-        if m:
-            clauses.append({f"¬{m.group(1)}", m.group(2)})
+        # 1) Hecho unario:  P(...)
+        if ("forall" not in s) and ("->" not in s):
+            clauses.append({s})
             continue
 
-        # Reglas tipo: forall x: P(x) -> (Q(x) ∨ R(x))
-        m = re.match(r"^forall[ a-z,]*:([A-Za-z]+\([a-zA-Z,]+\))->\((.+)\)$", f)
-        if m:
-            ant = m.group(1)
-            cons = [p.strip() for p in m.group(2).split("∨")]
-            clauses.append({f"¬{ant}", *cons})
+        # 2) forall U: Ante -> Cons
+        m = re.match(r"^forall([a-z,]+):(.+)->(.+)$", s)
+        if not m:
+            # formato no soportado
             continue
 
-        # Reglas tipo: forall x,y: (A ∧ B ∧ C) -> ¬D
-        m = re.match(r"^forall[ a-z,]*:\((.+)\)->(¬[A-Za-z]+\([a-zA-Z,]+\))$", f)
-        if m:
-            ants = [p.strip() for p in m.group(1).split("∧")]
-            cons = m.group(2)
-            neg_ants = {f"¬{a}" if not a.startswith("¬") else a for a in ants}
-            clauses.append(neg_ants | {cons})
+        uvars = [v for v in m.group(1).split(",") if v]      # universales
+        antecedent = m.group(2)
+        consequent = m.group(3)
+
+        # 2.a) Antecedente puede venir parentetizado; normalizamos
+        if antecedent.startswith("(") and antecedent.endswith(")"):
+            antecedent = antecedent[1:-1]
+        ants = split_conj(antecedent) if "^" in antecedent else [antecedent]
+
+        # helper: negaciones del antecedente
+        neg_ants = {negate(a) if not a.startswith("¬") else a for a in ants}
+
+        # CASOS DEL CONSECUENTE:
+
+        # (i) exists v: T(...)
+        m_ex = re.match(r"^\(exists([a-z,]+):([A-Za-z]+\([A-Za-z0-9_,]+\))\)$", consequent)
+        if m_ex:
+            evars = [v for v in m_ex.group(1).split(",") if v]
+            T = m_ex.group(2)
+            T_skol = skolemize_existential(T, evars, uvars)
+            clauses.append(neg_ants | {T_skol})
             continue
 
-    # Agregar negación de la pregunta
-    q = limpiar(pregunta)
-    if not q.startswith("¬"):
-        clauses.append({f"¬{q}"})
-    else:
-        clauses.append({q})
+        # (ii) forall w: ¬T(...)
+        m_all_not = re.match(r"^\(forall([a-z,]+):¬([A-Za-z]+\([A-Za-z0-9_,]+\))\)$", consequent)
+        if m_all_not:
+            # Las variables 'w' simplemente quedan como variables libres (universales) en la cláusula
+            T = m_all_not.group(2)
+            clauses.append(neg_ants | {negate(T)})
+            continue
+
+        # (iii) Disyunción explícita en el consecuente:  (B v C v ...)
+        if consequent.startswith("(") and consequent.endswith(")") and "v" in consequent:
+            parts = set(split_disj(consequent[1:-1]))
+            clauses.append(neg_ants | parts)
+            continue
+
+        # (iv) Simple: P(...)  (=> ¬A v P)
+        clauses.append(neg_ants | {consequent})
+
+    # Negación de la pregunta
+    q = norm(pregunta)
+    clauses.append({negate(q)})
+
     return clauses
 
 # ---------------------------
